@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     getGoodsList() {
-      axios.get("/api/appData").then(res => {
+      axios.get("/api/index.json").then(res => {
         let data = res.data;
         console.log(data)
       });
