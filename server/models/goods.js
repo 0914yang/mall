@@ -1,8 +1,7 @@
-
 // 引入mongoose模块
 var mongoose = require('mongoose')
 
-//var Schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
 var productSchema = new mongoose.Schema({
     "productId": String,

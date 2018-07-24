@@ -3,20 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var ejs = require('ejs');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// 引入goods
-var goodsRouter = require('./routes/goods');
+var userRouter = require('./routes/user');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
-app.engine('.html',ejs.__express);
-app.set('view engine', 'html');
+app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -26,8 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// goods路由
-app.use('/goods', goodsRouter);
+app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

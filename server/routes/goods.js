@@ -6,6 +6,8 @@ var Goods = require('../models/goods');
 // 链接mongodb数据库
 mongoose.connect('mongodb://127.0.0.1:27017/mall');
 
+
+// 监听数据库
 mongoose.connection.on('connected', () => {
     console.log('mongodb connected success')
 });
@@ -13,13 +15,12 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', () => {
     console.log('mongodb connected fail.')
 });
-
+ 
 mongoose.connection.on('disconnected', () => {
     console.log('mongodb connected disconnected.')
 });
 
 router.get('/', (req, res, next) => {
-    // res.send('hello,goods list.')
     Goods.find({}, (err, doc) => {
         if (err) {
             res.json({
