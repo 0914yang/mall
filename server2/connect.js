@@ -8,4 +8,4 @@ mongoose.connection.on('error',(err) => {
 
 mongoose.connection.on('open',() => {
     console.log('数据库连接成功');
-})
+}) 

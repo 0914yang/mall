@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+// 定义Model
 UserSchema = new mongoose.Schema({
     username: {
         type: String,
