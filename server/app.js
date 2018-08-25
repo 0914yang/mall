@@ -7,8 +7,8 @@ var ejs = require('ejs');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// 引入goods
 var goodsRouter = require('./routes/goods');
+var homeRouter = require('./routes/home');
 
 var app = express();
 
@@ -26,8 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// goods路由
 app.use('/goods', goodsRouter);
+app.use('/home', homeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

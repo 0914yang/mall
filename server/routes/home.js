@@ -1,26 +1,15 @@
 require('../connect');
-var User = require('../models/user');
+var Home = require('../models/home');
 var express = require('express');
 var router = express.Router();
 
 // 定义'user'实体
-// var user = new User({
-//   username: 'Ewall',
-//   password: '123456'
-// });
-
-// 操作数据库
-// user.save(function (err, doc) {
-//   if (err) {
-//     console.log('save error:' + err);
-//   }
-//   console.log('save sucess \n' + doc);
-// })
+var homeData = new Home();
 
 // 二级路由
 router.get('/', function (req, res, next) {
   //res.send('hello world');
-  User.find({}, function (err, doc) {
+  Home.find({}, function (err, doc) {
     if (err) {
       res.json({
         status: '500',
@@ -31,8 +20,7 @@ router.get('/', function (req, res, next) {
         status: '200',
         msg: '',
         result: {
-          count: doc.length,
-          list: doc
+          data: doc
         }
       })
     }
@@ -40,4 +28,3 @@ router.get('/', function (req, res, next) {
 });
 
 module.exports = router;
-
